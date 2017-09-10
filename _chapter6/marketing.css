@@ -196,16 +196,6 @@ a.pure-button-primary {
     background: white;
 }
 
-/* This content wrapper is used when there is no splash */
-.content-wrapper-small {
-    position: absolute;
-    top: 15%;
-    width: 100%;
-    min-height: 12%;
-    z-index: 2;
-    background: white;
-}
-
 /* We want to give the content area some more padding */
 .content {
     padding: 1em 1em 3em;

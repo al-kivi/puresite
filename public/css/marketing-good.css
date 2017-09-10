@@ -82,49 +82,6 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
-
-/*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
- */
-
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-}
-.home-menu {
-    background: #2d3e50;
-}
-
-.pure-menu.pure-menu-fixed {
-    /* Fixed menus normally have a border at the bottom. */
-    border-bottom: none;
-    /* I need a higher z-index here because of the scroll-over effect. */
-    z-index: 4;
-}
-
-.home-menu .pure-menu-heading {
-    color: white;
-    font-weight: 400;
-    font-size: 120%;
-}
-
-.home-menu .pure-menu-selected a {
-    color: white;
-}
-
-.home-menu a {
-    color: #6FBEF3;
-}
-.home-menu li a:hover,
-.home-menu li a:focus {
-    background: none;
-    border: none;
-    color: #AECFE5;
-}
-
-
 /*
  * -- SPLASH STYLES --
  * This is the blue top section that appears on the page.
@@ -133,13 +90,22 @@ a.pure-button-primary {
 .splash-container {
     background: #1f8dd6;
     z-index: 1;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 88%;
-    top: 0;
-    left: 0;
+    height: 70%;
+    /* top: 0;
+    left: 0; */
     position: fixed !important;
+}
+
+.splash-img {
+    /* image parameters are sized for 1500x500 image */
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+    z-index: -1;
 }
 
 .splash {
@@ -147,39 +113,32 @@ a.pure-button-primary {
     width: 80%;
     height: 50%;
     margin: auto;
-    position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    /* absolute; */
+    /* position: relative; */  /* this allows text to rise */
+    top: 100px; left: 5%; bottom: 0; right: 0;  /* adjust top */
     text-align: center;
     text-transform: uppercase;
 }
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    font-size: 20px;
+    font-size: 250%;
     font-weight: bold;
     color: white;
     border: 3px solid white;
-    padding: 1em 1.6em;
+    padding: 0.5em 1.6em;
     font-weight: 100;
     border-radius: 5px;
     line-height: 1em;
+    top: -25%;
 }
 
 /* This is the subheading that appears on the blue section */
 .splash-subhead {
     color: white;
+    font-weight: 500;
     letter-spacing: 0.05em;
-    opacity: 0.8;
-}
-
-/* This handles the attributes of the splash image */
-.splash-img {
-    /* image parameters are sized for 1500x500 image */
-    position: absolute;
-    width: auto;
-    height: 200%;
-    top: -50%; left: -75%; bottom: 0; right: 0;    
-    z-index: -1;
+    /* opacity: 0.8; */
 }
 
 /*
@@ -188,18 +147,22 @@ a.pure-button-primary {
  */
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
+
     position: absolute;
-    top: 87%;
+    top: 60%;  /* Adjust for size of splash screen */
+
     width: 100%;
     min-height: 12%;
     z-index: 2;
     background: white;
 }
 
-/* This content wrapper is used when there is no splash */
 .content-wrapper-small {
+    /* This content wrapper is used when there in no splash */
+
     position: absolute;
     top: 15%;
+
     width: 100%;
     min-height: 12%;
     z-index: 2;
@@ -249,7 +212,7 @@ a.pure-button-primary {
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
- * of the mobile styles.
+ * of the mobile styles. About 740 px.
  */
 @media (min-width: 48em) {
 
@@ -258,17 +221,8 @@ a.pure-button-primary {
         font-size: 16px;
     }
 
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
-    .home-menu {
-        text-align: left;
-    }
-        .home-menu ul {
-            float: right;
-        }
-
     /* We increase the height of the splash-container */
-/*    .splash-container {
+    /*  .splash-container {
         height: 500px;
     }*/
 
@@ -277,8 +231,8 @@ a.pure-button-primary {
     .splash {
         width: 50%;
         height: 50%;
+        /* top: 100px; */
     }
-
     .splash-head {
         font-size: 250%;
     }
@@ -294,11 +248,38 @@ a.pure-button-primary {
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
  * On desktops and other large devices, we want to over-ride some
- * of the mobile and tablet styles.
+ * of the mobile and tablet styles. About 1200px.
  */
-@media (min-width: 78em) {
+@media (min-width: 62em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 250%;
     }
+    .splash {
+        /* top: 100px; */
+    }
+    .splash-img {
+        left: -5%;
+        width: 110%;
+        height: 150%;
+    }
+   
+}
+
+/*
+ * -- LARGE DESKTOP MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile and tablet styles.
+ */
+@media (min-width: 81.25em) {
+    /* We increase the splash image size even more */
+    .splash {
+        /* top: 100px; */
+    }    
+    .splash-img {
+        left: -5%;
+        width: 110%;
+        height: 120%;
+    }
+    
 }

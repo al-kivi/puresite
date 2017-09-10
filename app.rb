@@ -1,24 +1,18 @@
-# app.rb Chapter 6 ... Multi-Page application
-require 'sinatra'
+# app.rb Chapter 7: Add additional pages behind Landing Page
+$LOAD_PATH.unshift(File.dirname(__FILE__))
 
-def menu_tag(href)
-  if request.path_info == href
-    " \"pure-menu-item pure-menu-selected\" "
-  else  
-    " \"pure-menu-item\" "
-  end
-end
+require 'sinatra'
+require 'helpers'
 
 get '/' do
   @image = "images/heroshot.jpg"
-  erb :home, :layout => :layout2
+  erb :home
 end
 
-get '/tour' do
-  erb :ribbon, :layout => :layout2
+get '/about' do
+  erb :about
 end
 
-get '/contact' do
-  erb :contact, :layout => :layout2
+get '/privacy' do
+  erb :privacy
 end
-    
